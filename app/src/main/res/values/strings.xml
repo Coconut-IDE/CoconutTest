@@ -1,3 +1,19 @@
 <resources>
     <string name="app_name">CoconutTest</string>
+    <string name="calendar_test_activity">Calendar Test Activity</string>
+    <string name="contacts_test_activity">Contacts Test Activity</string>
+    <string name="sms_test_activity">SMS Test Activity</string>
+    <string name="calllogs_test_activity">Call Logs Test Activity</string>
+    <string name="microphone_test_activity">Microphone Test Activity</string>
+    <string name="camera_2_test_activity">camera2 API Test Activity</string>
+    <string name="camera_by_intent_test_activity">Camera by Intent Test Activity</string>
+    <string name="start_recording_with_media_recorder">Start Recording With MediaRecorder</string>
+    <string name="start_recording_with_audio_record">Start Recording With AudioRecord</string>
+    <string name="start_recording_with_intent">Start Recording With Intent</string>
+    <string name="record_video">Record Video</string>
+    <string name="stop_recording">Stop Recording</string>
+    <string name="play">Play</string>
+    <string name="initialize_sensors">Initalize Sensors</string>
+    <string name="stop_playing">Stop Playing</string>
+    <string name="take_picture">Take picture</string>
 </resources>

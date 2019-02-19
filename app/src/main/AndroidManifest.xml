@@ -2,8 +2,16 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.coconuttest.tyu91.coconuttest">
 
-    <uses-permission android:name="android.permission.WRITE_CALENDAR"></uses-permission>
-    <uses-permission android:name="android.permission.READ_CALENDAR"></uses-permission>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_CALENDAR" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.WRITE_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.BODY_SENSORS" />
 
     <application
         android:allowBackup="true"
@@ -12,6 +20,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".CallLogsTestActivity"></activity>
+        <activity android:name=".SmsTestActivity" />
+        <activity android:name=".ContactsTestActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,6 +30,18 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MicrophoneTestActivity">
+            <!--<intent-filter>
+                <action android:name="android.provider.MediaStore.RECORD_SOUND" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>-->
+        </activity>
+        <activity android:name=".CalendarTestActivity" />
+        <activity android:name=".Camera2APITestActivity" />
+        <activity android:name=".CameraByIntentTestActivity" />
+        <activity android:name=".VideoRecordingTestActivity" />
+        <activity android:name=".VideoRecordingByIntentTestActivity" />
+        <activity android:name=".SensorTestActivity" />
     </application>
 
 </manifest>

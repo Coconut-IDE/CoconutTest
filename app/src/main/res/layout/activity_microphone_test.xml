@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MicrophoneTestActivity">
+
+    <Button
+        android:id="@+id/recordWithMediaRecorderBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/start_recording_with_media_recorder" />
+
+    <Button
+        android:id="@+id/stopRecordingBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toEndOf="@+id/recordWithMediaRecorderBtn"
+        android:text="@string/stop_recording" />
+
+    <Button
+        android:id="@+id/recordWithAudioRecordBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recordWithMediaRecorderBtn"
+        android:text="@string/start_recording_with_audio_record" />
+
+    <Button
+        android:id="@+id/recordWithIntentBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/recordWithAudioRecordBtn"
+        android:text="@string/start_recording_with_intent" />
+
+    <Button
+        android:id="@+id/playBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recordWithIntentBtn"
+        android:text="@string/play" />
+
+</RelativeLayout>

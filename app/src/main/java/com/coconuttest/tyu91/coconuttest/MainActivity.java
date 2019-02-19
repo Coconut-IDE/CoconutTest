@@ -1,78 +1,120 @@
 package com.coconuttest.tyu91.coconuttest;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.provider.CalendarContract;
-import android.provider.Settings;
-import android.support.v4.app.ActivityCompat;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.TextView;
+import android.view.View;
+import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
 
-    private int MY_PERMISSIONS_REQUEST_READ_CONTACTS = 1;
-    //private String[] projection;
-    private String androidID;
+    //TODO: add back buttons for each test activity back to this main activity
+    //TODO: app crashes initially if permissions not enabled. This behavior is expected; for now let the app crash, give permission, and reopen app.
+
+    Button calendarBtn, contactsBtn, smsBtn, callLogsBtn, microphoneBtn, camera2Btn, cameraByIntentBtn, recordVideoBtn, sensorsBtn;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_CALENDAR) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            ActivityCompat.requestPermissions(this,
-                    new String[]{Manifest.permission.READ_CONTACTS},
-                    MY_PERMISSIONS_REQUEST_READ_CONTACTS);
-        }
+        //go to calendar test activity
+        calendarBtn = findViewById(R.id.calendarBtn);
+        calendarBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CalendarTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        String displayName = CalendarContract.Calendars.CALENDAR_DISPLAY_NAME;
+        //go to contacts test activity
+        contactsBtn = findViewById(R.id.contactsBtn);
+        contactsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ContactsTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        String[] projection = new String[]
-                {displayName,
-                        CalendarContract.Calendars.OWNER_ACCOUNT,
-                        CalendarContract.Events.TITLE,
-                        CalendarContract.Events.DESCRIPTION,
-                        CalendarContract.Events.EVENT_LOCATION,
-                        CalendarContract.Events.ORGANIZER,
-                        CalendarContract.Attendees.ATTENDEE_NAME,
-                        CalendarContract.Attendees.ATTENDEE_RELATIONSHIP,
-                };
+        //go to sms test activity
+        smsBtn = findViewById(R.id.smsBtn);
+        smsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SmsTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        String[] projection1;
+        //go to call logs test activity
+        callLogsBtn = findViewById(R.id.callLogsBtn);
+        callLogsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CallLogsTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        projection1 = projection;
+        //go to microphone test activity
+        microphoneBtn = findViewById(R.id.microphoneBtn);
+        microphoneBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, MicrophoneTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        projection = new String[]{CalendarContract.Calendars.CALENDAR_DISPLAY_NAME
-        };
+        //go to camera2 test activity
+        camera2Btn = findViewById(R.id.cameraBtn);
+        camera2Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, Camera2APITestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        String selection = "((" + CalendarContract.Calendars.ACCOUNT_NAME + " = ?) AND ("
-                + CalendarContract.Calendars.ACCOUNT_TYPE + " = ?) AND ("
-                + CalendarContract.Calendars.OWNER_ACCOUNT + " = ?))";
+        //go to camera by intent test activity
+        cameraByIntentBtn = findViewById(R.id.cameraByIntentBtn);
+        cameraByIntentBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, CameraByIntentTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        selection = "((" + CalendarContract.Calendars.OWNER_ACCOUNT + " = ?))";
+        //go to video recording test activity
+        recordVideoBtn = findViewById(R.id.recordVideoBtn);
+        recordVideoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, VideoRecordingTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
-        String[] selectionArgs = new String[]{"hera@example.com", "com.example",
-                "hera@example.com"};
-
-        androidID = Settings.Secure.ANDROID_ID;
-        Cursor c;
-
-        c = this.getBaseContext().getContentResolver().query(CalendarContract.CONTENT_URI, projection1, selection, selectionArgs, null);
-//        String[] columnNames = c.getColumnNames();
-
-        projection = new String[]
-                {CalendarContract.Events.ORGANIZER,
-                        CalendarContract.Attendees.ATTENDEE_NAME,
-                        CalendarContract.Attendees.ATTENDEE_RELATIONSHIP
-                };
-        String id = Settings.Secure.getString(getContentResolver(), androidID);
+        //go to sensors test activity
+        sensorsBtn = findViewById(R.id.sensorsBtn);
+        sensorsBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, SensorTestActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
     }
 }
